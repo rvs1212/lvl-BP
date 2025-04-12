@@ -4,15 +4,22 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
-use App\Models\User;
+use App\Services\User\UserFilterService;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    protected UserFilterService $filterService;
+
+    public function __construct(UserFilterService $filterService)
+    {
+        $this->filterService = $filterService;
+    }
+
     public function index(Request $request)
     {
-        //return response()->json(['msg' => 'testing']);
-        $users = User::with('languages')->get(); // eager load relationship
-        return UserResource::collection($users); // return formatted response
+        $filteredQuery = $this->filterService->applyFilters($request->all());
+
+        return UserResource::collection($filteredQuery->get());
     }
 }
