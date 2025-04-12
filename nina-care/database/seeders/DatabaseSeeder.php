@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Language;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,11 +14,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Step 1: Create languages
+        $this->call(LanguageSeeder::class);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // Step 2: Create 10 users
+        User::factory(10)->create();
+
+        // Step 3: Attach random languages to users
+        $users = User::all();
+        $languages = Language::all();
+
+        foreach ($users as $user) {
+            $user->languages()->attach(
+                $languages->random(rand(1, 3))->pluck('id')->toArray()
+            );
+        }
     }
 }
