@@ -156,7 +156,7 @@ Sample Json response
 
 🙌 Notes
 
-- New filters can be added (e.g., AgeFilter) by creating a new class and updating the UserFilterService's $filters array.
+- New filters can be added (e.g., AgeFilter, UserTraits, etc) by creating a new class and updating the UserFilterService's $filters array.
 
 - This structure is designed to scale well as the application grows.
 
