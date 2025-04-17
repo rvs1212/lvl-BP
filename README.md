@@ -124,7 +124,7 @@ Sample Json response
 
 1. Clone the repo
 
-    * git clone `<your-repo-url>`
+    * git clone `<repo-url>`
     * cd nina-care
 
 2. Install dependencies:
@@ -135,7 +135,7 @@ Sample Json response
 
 2. Create and configure .env file:
 
-    * Set up your MySQL DB (e.g., laravel_BP)
+    * Set up your MySQL DB
     * Configure DB credentials
 
 4. Run migrations and seed data:

@@ -21,8 +21,7 @@ class UserResource extends JsonResource
             'gender'   => $this->gender,
             'location' => $this->location,
             'bio'      => $this->bio,
-            'languages' => $this->languages->pluck('language'), // returns just language names
+            'languages' => $this->languages->pluck('language'),
         ];
-        // return parent::toArray($request);
     }
 }

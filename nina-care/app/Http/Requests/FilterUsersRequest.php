@@ -21,10 +21,12 @@ class FilterUsersRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
             'gender'   => 'nullable|in:male,female,other',
             'location' => 'nullable|string|max:255',
             'age'      => 'nullable|integer|min:0|max:120',
         ];
     }
+
 }

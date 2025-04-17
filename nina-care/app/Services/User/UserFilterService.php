@@ -24,7 +24,6 @@ class UserFilterService
 
     public function applyFilters(array $inputs): Builder
     {
-        // $query = User::query()->with('languages'); // Start base query
         $query = $this->queryBuilder->baseQuery();
         
         foreach ($inputs as $key => $value) {
@@ -33,7 +32,7 @@ class UserFilterService
                 $query = $filterClass->apply($query, $value);
             }
         }
-
+        
         return $query;
     }
 }
