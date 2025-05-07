@@ -125,7 +125,7 @@ Sample Json response
 1. Clone the repo
 
     * git clone `<repo-url>`
-    * cd nina-care
+    * cd PjtFilter
 
 2. Install dependencies:
 
